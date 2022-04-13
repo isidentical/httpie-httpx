@@ -95,7 +95,7 @@ class HTTPCoreAdapter(HTTPAdapter):
         reason_phrase = response.extensions.get("reason_phrase")
 
         # HTTP/2 does not include a reason phrase, so for
-        # the sake of simplicty I just get it from the default store.
+        # the sake of simplicity I just get it from the default store.
         if reason_phrase:
             reason_phrase = reason_phrase.decode("ascii")
         else:
