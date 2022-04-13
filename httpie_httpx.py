@@ -69,6 +69,9 @@ class HTTPCoreAdapter(HTTPAdapter):
             headers["host"] = parse_url(request.url).netloc
 
         extensions = {}
+        if timeout:
+            extensions["timeout"] = Timeout(timeout).as_dict()
+
         httpcore_request = Request(
             method=request.method,
             url=request.url,
